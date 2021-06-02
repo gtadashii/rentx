@@ -1,3 +1,5 @@
+import { getRepository, Repository } from "typeorm";
+
 import { Specification } from "../../entities/Specification";
 import {
   ISpecificationRepository,
@@ -5,27 +7,25 @@ import {
 } from "../ISpecificationRepository";
 
 class SpecificationsRepository implements ISpecificationRepository {
-  private spefications: Specification[];
+  private repository: Repository<Specification>;
 
   constructor() {
-    this.spefications = [];
+    this.repository = getRepository(Specification);
   }
 
-  create({ description, name }: ICreateSpecificationDTO): void {
-    const spefication = new Specification();
-    Object.assign(spefication, {
-      name,
+  async create({ description, name }: ICreateSpecificationDTO): Promise<void> {
+    const spefication = this.repository.create({
       description,
-      created_at: new Date(),
+      name,
     });
 
-    this.spefications.push(spefication);
+    await this.repository.save(spefication);
   }
 
-  findByName(name: string): Specification {
-    const spefication = this.spefications.find(
-      (spefication) => spefication.name === name
-    );
+  async findByName(name: string): Promise<Specification> {
+    const spefication = this.repository.findOne({
+      name,
+    });
     return spefication;
   }
 }

@@ -11,7 +11,7 @@
   "paths": {
     "/categories": {
       "post": {
-        "tag": [
+        "tags": [
           "Category"
         ],
         "summary": "Create category",

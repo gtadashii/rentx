@@ -58,6 +58,6 @@ describe("Authenticate User", () => {
         email: user.email,
         password: "incorrectPassword",
       });
-    });
+    }).rejects.toBeInstanceOf(AppError);
   });
 });

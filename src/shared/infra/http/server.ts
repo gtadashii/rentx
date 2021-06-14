@@ -11,7 +11,7 @@ import { router } from "./routes";
 
 import "@shared/container";
 
-createConnection();
+createConnection("database_ignite");
 const app = express();
 
 app.use(express.json());

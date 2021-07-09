@@ -12,7 +12,7 @@ import createConnection from "@shared/infra/typeorm";
 import swaggerFile from "../../../swagger.json";
 import { router } from "./routes";
 
-createConnection("database_ignite");
+createConnection();
 const app = express();
 
 app.use(express.json());

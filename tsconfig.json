@@ -19,13 +19,13 @@
       ],
       "@utils/*": [
         "utils/*"
-      ]
+      ],
     },
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
-  }
+    "resolveJsonModule": true,
+  },
 }
